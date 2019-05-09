@@ -1,107 +1,180 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aishik's Website</title>
-<style type="text/css">
-body {
-	background-image: url(gradient-white-grey-linear-2160x1080-c2-a9a9a9-ffffff-a-195-f-14.jpg);
-}
-#apDiv1 {
-	position: absolute;
-	left: 459px;
-	top: 56px;
-	width: 669px;
-	height: 129px;
-	z-index: 1;
-}
-#apDiv2 {
-	position: absolute;
-	left: 79px;
-	top: 261px;
-	width: 257px;
-	height: 243px;
-	z-index: 2;
-}
-#apDiv3 {
-	position: absolute;
-	left: 616px;
-	top: 259px;
-	width: 273px;
-	height: 247px;
-	z-index: 3;
-}
-#apDiv4 {
-	position: absolute;
-	left: 1154px;
-	top: 258px;
-	width: 249px;
-	height: 255px;
-	z-index: 4;
-}
-#apDiv5 {
-	position: absolute;
-	left: 612px;
-	top: 698px;
-	width: 310px;
-	height: 307px;
-	z-index: 5;
-}
-.Trial1 {
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: x-large;
-	color: #000;
-}
-.Trial2 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size: xx-large;
-	font-style: normal;
-	color: #000;
-}
-.Trial3 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size: 300px;
-	color: #000;
-}
-.Trial4 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size: 100px;
-}
-#apDiv6 {
-	position: absolute;
-	left: 85px;
-	top: 697px;
-	width: 273px;
-	height: 247px;
-	z-index: 3;
-}
-#apDiv7 {
-	position: absolute;
-	left: 1162px;
-	top: 706px;
-	width: 273px;
-	height: 247px;
-	z-index: 3;
-}
-#apDiv8 {
-	position: absolute;
-	left: 562px;
-	top: 1115px;
-	width: 273px;
-	height: 93px;
-	z-index: 3;
-}
-</style>
-</head>
+    <script src="./app.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@4"></script>
+  </head>
 
 <body>
-<div class="Trial4" id="apDiv1">Hi. It's Aishik!</div>
-<div id="apDiv2"><a href="https://www.facebook.com/aishik.ghosh.33"><img src="https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png" alt="Image result for facebook logo" width="300" height="300"/></a></div>
-<div id="apDiv3"><a href="https://www.linkedin.com/in/aishikghosh/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="Image result for linkedin logo" width="300" height="300"/></a></div>
-<div id="apDiv4"><a href="https://open.spotify.com/user/spotifycharts/playlist/37i9dQZEVXbMDoHDwVN2tF"><img src="https://seeklogo.com/images/S/spotify-2015-logo-560E071CB7-seeklogo.com.png" width="300" height="300" /></a></div>
-<div id="apDiv5"><a href="SecondPage.html"><img src="Perosnal.png" width="300" height="300" /></a></div>
-<div id="apDiv6"><img src="Snap3.png" alt="Image result for linkedin logo" width="300" height="300"/></div>
-<div id="apDiv7"><img src="messenger2.png" alt="Image result for linkedin logo" width="300" height="300"/></div>
-<div id="apDiv8"><a href="https://isotropic.org/papers/chicken.pdf"><img src="clickbait.png" alt="Image result for linkedin logo" width="424" height="109"/></a></div>
+    <p>
+        Please specify a file, or a set of files:<br>
+        <input type="file" id="input-file" size="40">
+    </p>
+    <textarea id="content-target"></textarea>
+    <br></br>
+    <button onclick="toggleDiv()">Generate Graphics</button>
+
+    <div id="tab-id" style="display:none">
+      <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Overall Data</a></li>
+            <li><a data-toggle="tab" href="#menu1">Aishik Ghosh</a></li>
+            <li><a data-toggle="tab" href="#menu2">Alvina Waseem</a></li>
+            <li><a data-toggle="tab" href="#menu3">Elaine Wang</a></li>
+            <li><a data-toggle="tab" href="#menu4">Irdina Nadeem</a></li>
+            <li><a data-toggle="tab" href="#menu5">Isha Kukadia</a></li>
+            <li><a data-toggle="tab" href="#menu6">Omar Mubarki</a></li>
+            <li><a data-toggle="tab" href="#menu7">Suhirtha Raj</a></li>
+        </ul>
+
+        <div class="tab-content" id="tab_id">
+            <div id="home" class="tab-pane fade in active">
+              
+                <div id="vis"></div>
+                
+                <script>
+                  const spec = "bar.vg.json";
+                  vegaEmbed('#vis', spec)
+                    // result.view provides access to the Vega View API
+                    .then(result => console.log(result))
+                    .catch(console.warn);
+                </script>
+              </body>
+            </div>
+            <div id="menu1" class="tab-pane fade"> 
+                <div id="vis2"></div>
+                <div id="vis3"></div>
+                <script>             
+                  const spec2 = "./word_cloud/vega/Aishik Ghosh_words.vg.json";
+                  vegaEmbed('#vis2', spec2)
+                    // result.view provides access to the Vega View API
+                    .then(result => console.log(result))
+                    .catch(console.warn);
+              
+                  const spec3 = "alvina_bar.json";
+                  vegaEmbed('#vis3', spec3)
+                    // result.view provides access to the Vega View API
+                    .then(result => console.log(result))
+                    .catch(console.warn);
+                </script>
+            </div>
+            <div id="menu2" class="tab-pane fade">  
+                <div id="vis4"></div>
+                <div id="vis5"></div>
+                <script>             
+                  const spec4 = "./word_cloud/vega/Aishik Ghosh_words.vg.json";
+                  vegaEmbed('#vis4', spec4)
+                    // result.view provides access to the Vega View API
+                    .then(result => console.log(result))
+                    .catch(console.warn);
+              
+                  const spec5 = "alvina_bar.json";
+                  vegaEmbed('#vis5', spec5)
+                    // result.view provides access to the Vega View API
+                    .then(result => console.log(result))
+                    .catch(console.warn);
+                </script>
+            </div>
+
+            <div id="menu3" class="tab-pane fade">
+  
+                  <div id="vis6"></div>
+                  <div id="vis7"></div>
+                  <script>             
+                    const spec6 = "./word_cloud/vega/Aishik Ghosh_words.vg.json";
+                    vegaEmbed('#vis6', spec6)
+                      // result.view provides access to the Vega View API
+                      .then(result => console.log(result))
+                      .catch(console.warn);
+                
+                    const spec7 = "alvina_bar.json";
+                    vegaEmbed('#vis7', spec7)
+                      // result.view provides access to the Vega View API
+                      .then(result => console.log(result))
+                      .catch(console.warn);
+                  </script>
+              </div>
+
+              <div id="menu4" class="tab-pane fade">
+                    <div id="vis8"></div>
+                    <div id="vis9"></div>
+                    <script>             
+                      const spec8 = "./word_cloud/vega/Aishik Ghosh_words.vg.json";
+                      vegaEmbed('#vis8', spec8)
+                        // result.view provides access to the Vega View API
+                        .then(result => console.log(result))
+                        .catch(console.warn);
+                  
+                      const spec9 = "alvina_bar.json";
+                      vegaEmbed('#vis9', spec9)
+                        // result.view provides access to the Vega View API
+                        .then(result => console.log(result))
+                        .catch(console.warn);
+                    </script>
+                </div>
+
+                <div id="menu5" class="tab-pane fade">
+                      <div id="vis10"></div>
+                      <div id="vis11"></div>
+                      <script>             
+                        const spec10 = "./word_cloud/vega/Aishik Ghosh_words.vg.json";
+                        vegaEmbed('#vis10', spec10)
+                          // result.view provides access to the Vega View API
+                          .then(result => console.log(result))
+                          .catch(console.warn);
+                    
+                        const spec11 = "alvina_bar.json";
+                        vegaEmbed('#vis11', spec11)
+                          // result.view provides access to the Vega View API
+                          .then(result => console.log(result))
+                          .catch(console.warn);
+                      </script>
+                  </div>
+
+                  <div id="menu6" class="tab-pane fade">  
+                        <div id="vis12"></div>
+                        <div id="vis13"></div>
+                        <script>             
+                          const spec12 = "./word_cloud/vega/Aishik Ghosh_words.vg.json";
+                          vegaEmbed('#vis12', spec12)
+                            // result.view provides access to the Vega View API
+                            .then(result => console.log(result))
+                            .catch(console.warn);
+                      
+                          const spec13 = "alvina_bar.json";
+                          vegaEmbed('#vis13', spec13)
+                            // result.view provides access to the Vega View API
+                            .then(result => console.log(result))
+                            .catch(console.warn);
+                        </script>
+                    </div>
+
+                    <div id="menu7" class="tab-pane fade">
+                          <div id="vis14"></div>
+                          <div id="vis15"></div>
+                          <script>             
+                            const spec14 = "./word_cloud/vega/Aishik Ghosh_words.vg.json";
+                            vegaEmbed('#vis14', spec14)
+                              // result.view provides access to the Vega View API
+                              .then(result => console.log(result))
+                              .catch(console.warn);
+                        
+                            const spec15 = "alvina_bar.json";
+                            vegaEmbed('#vis15', spec15)
+                              // result.view provides access to the Vega View API
+                              .then(result => console.log(result))
+                              .catch(console.warn);
+                          </script>
+                      </div>
+        </div>
+    </div>
+    
 </body>
+
 </html>
